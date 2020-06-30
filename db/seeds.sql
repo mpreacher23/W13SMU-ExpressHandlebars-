@@ -1,0 +1,13 @@
+USE WS13SMU_db;
+
+INSERT INTO burgers
+    (burger_name, devoured)
+VALUES
+    ("Whiskey King Burger", false),
+    ("The Lola Burger", false),
+    ("Buckhorn Burger", false),
+    ("Black Label Burger", false),
+    ("Primetime Burger", true);
+
+SELECT *
+FROM burgers;

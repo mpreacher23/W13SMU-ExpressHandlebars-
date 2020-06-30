@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS WS13SMU_db;
+CREATE DATABASE WS13SMU_db;
+USE WS13SMU_db;
+
+CREATE TABLE burgers
+(
+    id INT NOT NULL
+    AUTO_INCREMENT,
+   burger_name VARCHAR
+    (40) NOT NULL,
+   devoured BOOLEAN,
+   PRIMARY KEY
+    (id)
+);
