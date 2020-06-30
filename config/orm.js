@@ -1,81 +1,71 @@
-const connection = require("../config/connection.js");
+var connection = require("../config/connection.js");
 
-// It might not be necessary
-function printQuestions(num) {
-    const qArr = [];
 
-    for (let i = 0; i < num.length; i++) {
-        qArr.push("?");
+function printQuestionMarks(num) {
+    var arr = [];
+    for (var i = 0; i < num; i++) {
+        arr.push("?");
     }
-    return qArr.toString();
-};
+    return arr.toString();
+}
 
 function objToSql(ob) {
-    const oArr = [];
-
-    for (let key in ob) {
-        const value = ob[key];
+    var arr = [];
+    for (var key in ob) {
+        var value = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            oArr.push(key + "=" + value);
+            arr.push(key + "=" + value);
         }
     }
-    return oArr.toString();
+    return arr.toString();
 }
 
-const orm = {
-    all: (tableInput, cb) => {
-        connection.query(`SELECT * FROM ${tableInput};`, (err, result) => {
+
+var orm = {
+    selectAll: function (table, cb) {
+        var queryString = "SELECT * FROM " + table + ";";
+        connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
             cb(result);
         });
     },
-    create: (table, cols, vals, cb) => {
-        const queryString = `INSERT INTO ${table}`;
+    insertOne: function (table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
 
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += printQuestions(vals.length);
-        queryString += " )";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
 
-        console.log(queryString);
-
-        connection.query(queryString, vals, (err, result) => {
+        connection.query(queryString, vals, function (err, result) {
             if (err) {
                 throw err;
             }
+
             cb(result);
         });
     },
-    update: (table, obColVals, condition, cb) => {
-        const queryString = `UPDATE ${table}`;
 
-        queryString += "SET ";
-        queryString += objToSql(obColVals);
-        queryString += "WHERE ";
-        queryString += condition;
+    updateOne: function (table, objColVals, condition, cb) {
+        var queryString = "UPDATE " + table;
 
-        console.log(queryString);
-
-        connection.query(queryString, (err, result) => {
-            if (err) throw err;
-            cb(result);
-        });
-    },
-    delete: (table, condition, cb) => {
-        const queryString = `DELETE FROM ${table}`;
-
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
 
-        connection.query(queryString, (err, result) => {
-            if (err) throw err;
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
             cb(result);
         });
     }

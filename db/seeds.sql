@@ -1,13 +1,14 @@
-USE WS13SMU_db;
-
-INSERT INTO burgers
-    (burger_name, devoured)
+INSERT INTO burgers_db.burgers
+    (id, burger_name, devoured)
 VALUES
-    ("Whiskey King Burger", false),
-    ("The Lola Burger", false),
-    ("Buckhorn Burger", false),
-    ("Black Label Burger", false),
-    ("Primetime Burger", true);
+    (1, "Griffs double meat burger with cheese", 0);
 
-SELECT *
-FROM burgers;
+INSERT INTO burgers_db.burgers
+    (id, burger_name, devoured)
+VALUES
+    (2, "Twisted Root burger with goat cheese", 0);
+
+INSERT INTO burgers_db.burgers
+    (id, burger_name, devoured)
+VALUES
+    (3, "Oasis Wow burger with cheese", 0);
