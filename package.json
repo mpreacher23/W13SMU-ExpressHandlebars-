@@ -1,18 +1,28 @@
 {
-    "name": "WS13SMU-ExpressHandlebars",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
-    "bugs": {},
-    "dependencies": {
-        "express": "^4.17.1",
-        "express-handlebars": "^4.0.4",
-        "mysql": "^2.18.1"
-    }
+  "name": "ws13smu-expresshandlebars",
+  "version": "1.0.0",
+  "description": "### Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.2.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpreacher23/W13SMU-ExpressHandlebars-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mpreacher23/W13SMU-ExpressHandlebars-/issues"
+  },
+  "homepage": "https://github.com/mpreacher23/W13SMU-ExpressHandlebars-#readme"
 }

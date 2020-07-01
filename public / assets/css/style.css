@@ -1,4 +1,41 @@
 .container {
-    background-color: darkgrey;
+    background-image: url(img/burger-background.jpg);
     height: 800px;
+}
+
+li {
+    padding: 5px;
+    margin: 10px 20px 0px 10px;
+    background: #f9f9f9;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.create-update-form {
+    padding: 5px;
+    margin: 5px;
+    background: #f3f7ua;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+#notDevoured {
+    width: 500px;
+    height: 400px;
+    background-color: #f5363e
+}
+
+#devoured {
+    width: 500px;
+    height: 400px;
+    background-color: #fdff10;
+}
+
+#burgerImg {
+    width: 150px;
+    height: 150px;
 }
